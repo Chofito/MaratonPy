@@ -1,4 +1,6 @@
 from math import sqrt, floor
+import sys
+import platform
 
 def prob_1(n):
     return n%2 == 0
@@ -230,7 +232,8 @@ def prob_22():
     pass
 
 def prob_23():
-    handle = open("/home/darksun/Escritorio/Practicas/Maraton/triangle.txt", "r")
+    path_delimiter = {"Windows":"\\", "Linux":"/", "Darwin":"/"}
+    handle = open(sys.path[0] + path_delimiter.get(platform.system(), "/")  + "triangle.txt", "r")
     mapa =[]
     resultado = 0
 
@@ -268,7 +271,7 @@ def prob_23():
                 pos += 1
 
     for i in valores:
-        print(i)
+        #print(i)
         resultado += int(i)
 
     return resultado
@@ -313,7 +316,7 @@ if __name__ == '__main__':
     prob_8(5)
     print(prob_9(4, 5, 3))
     #print(prob_10())
-    print(prob_11("Amadx a la dama"))
+    print(prob_11("Amad a la dama"))
     print(prob_12(101))
     print(prob_13(27))
     print(prob_14(19)) # 23452789
