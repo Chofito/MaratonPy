@@ -1,2 +1,2 @@
 # MaratonPy
-Soluciones para los retos propuestos por el licencia Samuel Chávez.
+Soluciones para los retos propuestos por el licenciado Samuel Chávez.
