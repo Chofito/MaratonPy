@@ -20,7 +20,7 @@ def prob_4(c, l: int):
     if size == l:
         return c
     elif size > l:
-        return "No puedes mandar un string mas grande que la longitud del parrafo"
+        return None
 
     final = "*" * l
         
@@ -67,24 +67,39 @@ def prob_7():
     return lista
 
 def prob_8(h):
+    piramide = ""
     if h == 0:
-        print("Altura no valida")
+        return None
     elif h == 1:
-        print("*")
+        return "*"
     else:
         for i in range(h-1, 0, -1):
             space = " " * i
             ast = "* " * (h-i)
-            print(space + ast)
+            piramide += space + ast + "\n"
+
+    return piramide
 
 def prob_9(num1, num2, num3):
     nums_sorted = [num1, num2, num3]
     nums_sorted.sort()
     return (nums_sorted[0]**2 + nums_sorted[1]**2) == nums_sorted[2]**2
 
-# TODO Problema 10, triangulo, tuplas, tipo, coordenadas
-def prob_10():
-    pass
+def prob_10(a, b, c):
+    x = sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2)
+    y = sqrt((b[0] - c[0])**2 + (b[1] - c[1])**2)
+    z = sqrt((c[0] - a[0])**2 + (c[1] - a[1])**2)
+    r = [x, y, z]
+    r.sort()
+    if r[0] + r[1] <= r[2]:
+        return None
+    
+    if r[0] == r[1] and r[1] == r[2]:
+        return "Triangulo Equilatero"
+    elif r[0] == r[1] or r[1] == r[2]:
+        return "Triangulo Isosceles"
+    else:
+        return "Triangulo Escaleno"
 
 def prob_11(x):
     x = "".join(x.split())
@@ -227,12 +242,27 @@ def prob_21(n):
 
     return lista
 
-# TODO: Problema 22 cuadrado, tuplas, coordenadas
-def prob_22():
-    pass
+def prob_22(ar1, ar2, ar3, ar4):
+    if ar1 == ar2 and ar2 == ar3 and ar3 == ar4: return False
+    
+    distancia_1 = sqrt((ar1[0] - ar2[0])**2 + (ar1[1] - ar2[1])**2)
+    distancia_2 = sqrt((ar1[0] - ar3[0])**2 + (ar1[1] - ar3[1])**2)
+    distancia_3 = sqrt((ar1[0] - ar4[0])**2 + (ar1[1] - ar4[1])**2)
+    resultados = [distancia_1,distancia_2,distancia_3]
+    distancia_4 = sqrt((ar4[0] - ar1[0])**2 + (ar4[1] - ar1[1])**2)
+    distancia_5 = sqrt((ar4[0] - ar2[0])**2 + (ar4[1] - ar2[1])**2)
+    distancia_6 = sqrt((ar4[0] - ar3[0])**2 + (ar4[1] - ar3[1])**2)
+    resultados_2 = [distancia_4, distancia_5, distancia_6]
+    resultados.sort()
+    resultados_2.sort()
+
+    print(resultados)
+    print(resultados_2)
+
+    return resultados == resultados_2
 
 def prob_23():
-    path_delimiter = {"Windows":"\\", "Linux":"/", "Darwin":"/"}
+    path_delimiter = {"Windows":"\\", "Linux":"", "Darwin":"/"}
     handle = open(sys.path[0] + path_delimiter.get(platform.system(), "/")  + "triangle.txt", "r")
     mapa =[]
     resultado = 0
@@ -271,7 +301,6 @@ def prob_23():
                 pos += 1
 
     for i in valores:
-        #print(i)
         resultado += int(i)
 
     return resultado
@@ -306,27 +335,27 @@ def prob_24(lista):
 
 if __name__ == '__main__':
     x = ""
-    print(prob_1(100))
-    print(prob_2(-12))
-    print(prob_3(2,0))
-    prob_4("holaa",11)
-    print(prob_5([-3, -2, 5], [6, -10, -1]))
-    print(prob_6([4,7,1,82,34,12,23,8,0]))
-    print(prob_7())
-    prob_8(5)
-    print(prob_9(4, 5, 3))
-    #print(prob_10())
-    print(prob_11("Amad a la dama"))
-    print(prob_12(101))
-    print(prob_13(27))
-    print(prob_14(19)) # 23452789
-    print(prob_15(14))
-    print(prob_16(220, 284))
-    print(prob_17(9, 14))
-    print(prob_18(6765))
-    print(prob_19(3))
-    print(prob_20())
-    print(prob_21(109))
-    #print(prob_22())
-    print(prob_23())
-    print(prob_24([1,2,3]))
+    #print(prob_1(100))
+    #print(prob_2(-12))
+    #print(prob_3(2,0))
+    #prob_4("holaa",11)
+    #print(prob_5([-3, -2, 5], [6, -10, -1]))
+    #print(prob_6([4,7,1,82,34,12,23,8,0]))
+    #print(prob_7())
+    #print(prob_8(5))
+    #print(prob_9(4, 5, 3))
+    #print(prob_10([-2,-1], [2,2], [5,-2]))
+    #print(prob_11("Amad a la dama"))
+    #print(prob_12(101))
+    #print(prob_13(27))
+    #print(prob_14(19)) # 23452789
+    #print(prob_15(14))
+    #print(prob_16(220, 284))
+    #print(prob_17(9, 14))
+    #print(prob_18(6765))
+    #print(prob_19(12))
+    #print(prob_20())
+    #print(prob_21(109))
+    #print(prob_22((0,0), (0,0), (0,0), (0,0)))
+    print("Total: " + str(prob_23()))
+    #print(prob_24([1,2,3]))
