@@ -265,6 +265,7 @@ def prob_23():
     path_delimiter = {"Windows":"\\", "Linux":"", "Darwin":"/"}
     handle = open(sys.path[0] + path_delimiter.get(platform.system(), "/")  + "triangle.txt", "r")
     mapa =[]
+    lista = []
     resultado = 0
 
     for line in handle:
@@ -275,33 +276,37 @@ def prob_23():
     pos = 0
     valores = []
     n = len(mapa)
+    last = len(mapa[n-1])
     
-    for i in range(n):
-        if len(mapa[i]) == 1:
-            valores.append(mapa[i][0])
-            continue
-        x = []
-        if pos != 0:
-            x.append(int(mapa[i][pos - 1]))
-        if (pos + 1) != len(mapa[i]):
-            x.append(int(mapa[i][pos + 1]))
-        x.append(int(mapa[i][pos]))
+    for d in range(last-1):
+        post = d
+        for i in range(n-1):
+            if len(mapa[i]) == 1:
+                valores.append(mapa[i][0])
+                continue
+            x = []
+            if pos != 0:
+                x.append(int(mapa[i][pos - 1]))
+            if (pos + 1) != len(mapa[i]):
+                x.append(int(mapa[i][pos + 1]))
+            x.append(int(mapa[i][pos]))
 
-        valores.append(max(x))
+            valores.append(max(x))
 
-        if pos != 0:
-            if x.index(max(x)) == 0:
-                pos -= 1
-            elif x.index(max(x)) == 1:
-                pos += 1
-        elif pos == 0 and len(mapa[i]) == 1:
-            pos = 0
-        else:
-            if x.index(max(x)) == 0:
-                pos += 1
+            if pos != 0:
+                if x.index(max(x)) == 0:
+                    pos -= 1
+                elif x.index(max(x)) == 1:
+                    pos += 1
+            elif pos == 0 and len(mapa[i]) == 1:
+                pos = 0
+            else:
+                if x.index(max(x)) == 0:
+                    pos += 1
+        for i in valores:
+            resultado += int(i)
 
-    for i in valores:
-        resultado += int(i)
+        lista.append(resultado)
 
     return resultado
 
@@ -346,7 +351,7 @@ if __name__ == '__main__':
     #print(prob_9(4, 5, 3))
     #print(prob_10([-2,-1], [2,2], [5,-2]))
     #print(prob_11("Amad a la dama"))
-    #print(prob_12(101))
+    #print(prob_12(1025))
     #print(prob_13(27))
     #print(prob_14(19)) # 23452789
     #print(prob_15(14))
