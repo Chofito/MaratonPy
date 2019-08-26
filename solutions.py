@@ -264,7 +264,7 @@ def prob_22(ar1, ar2, ar3, ar4):
 def prob_23():
     path_delimiter = {"Windows":"\\", "Linux":"", "Darwin":"/"}
     handle = open(sys.path[0] + path_delimiter.get(platform.system(), "/")  + "triangle.txt", "r")
-    mapa =[]
+    mapa = []
     lista = []
     resultado = 0
 
@@ -278,9 +278,9 @@ def prob_23():
     n = len(mapa)
     last = len(mapa[n-1])
     
-    for d in range(last-1):
+    for d in range(last):
         post = d
-        for i in range(n-1):
+        for i in range(n):
             if len(mapa[i]) == 1:
                 valores.append(mapa[i][0])
                 continue
@@ -303,10 +303,9 @@ def prob_23():
             else:
                 if x.index(max(x)) == 0:
                     pos += 1
-        for i in valores:
-            resultado += int(i)
 
-        lista.append(resultado)
+    for i in valores:
+        resultado += int(i)
 
     return resultado
 
