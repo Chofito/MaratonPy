@@ -36,6 +36,7 @@ def prob_4(c, l: int):
 
     return final
 
+
 def prob_5(vect1, vect2):
     p1 = (vect1[1]*vect2[2]) - (vect1[2]*vect2[1])
     p2 = (vect1[0]*vect2[2]) - (vect1[2]*vect2[0])
@@ -328,9 +329,9 @@ def prob_23():
         resultado = 0
         valores = []
         res = ""
-    
-    lista.sort(reverse = True)
-    
+
+    lista.sort(reverse=True)
+
     return lista[0]
 
 
@@ -365,18 +366,18 @@ def prob_24(lista):
 if __name__ == '__main__':
     print(prob_1(100))
     print(prob_2(-12))
-    print(prob_3(2,0))
-    print(prob_4("holaa",8))
+    print(prob_3(2, 0))
+    print(prob_4("holaa", 8))
     print(prob_5([-3, -2, 5], [6, -10, -1]))
-    print(prob_6([4,7,1,82,34,12,23,8,0]))
+    print(prob_6([4, 7, 1, 82, 34, 12, 23, 8, 0]))
     print(prob_7())
     print(prob_8(5))
     print(prob_9(4, 5, 3))
-    print(prob_10([-2,-1], [2,2], [5,-2]))
+    print(prob_10([-2, -1], [2, 2], [5, -2]))
     print(prob_11("Amad a la dama"))
     print(prob_12(1025))
     print(prob_13(27))
-    print(prob_14(19)) # 23452789
+    print(prob_14(19))  # 23452789
     print(prob_15(14))
     print(prob_16(220, 284))
     print(prob_17(9, 14))
@@ -384,6 +385,6 @@ if __name__ == '__main__':
     print(prob_19(12))
     print(prob_20())
     print(prob_21(109))
-    print(prob_22((0,0), (0,0), (0,0), (0,0)))
+    print(prob_22((0, 0), (0, 0), (0, 0), (0, 0)))
     print(str(prob_23()))
-    print(prob_24([1,2,3]))
+    print(prob_24([1, 2, 3]))
