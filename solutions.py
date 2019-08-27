@@ -26,30 +26,15 @@ def prob_4(c, l: int):
     elif size > l:
         return None
 
-    final = "*" * l
+    cantidad = int(l/2)
+    cantidad -= int(size/2)
+    final = "*" * cantidad
+    final += c
 
-    if prob_1(l):
-        half = int(l/2)
-        if prob_1(size):
-            half -= int(size/2)
-            final = final[:half]
-            print(final + c + final)
-        else:
-            half -= int((size+1)/2)
-            final = final[:half]
-            print(final + c + final + "*")
-    else:
-        half = int((l-1)/2)
-        if prob_1(size):
-            half -= int(size/2)
-            final = final[:half]
-            print(final + c + final + "*")
-        else:
-            half -= int(size/2)
-            final = final[:half]
-            print(final + c + final)
-# PEP8
+    cantidad = l - len(final)
+    final += "*" * cantidad
 
+    return final
 
 def prob_5(vect1, vect2):
     p1 = (vect1[1]*vect2[2]) - (vect1[2]*vect2[1])
@@ -105,11 +90,11 @@ def prob_10(a, b, c):
         return None
 
     if r[0] == r[1] and r[1] == r[2]:
-        return "Triangulo Equilatero"
+        return "Equilatero"
     elif r[0] == r[1] or r[1] == r[2]:
-        return "Triangulo Isosceles"
+        return "Isosceles"
     else:
-        return "Triangulo Escaleno"
+        return "Escaleno"
 
 
 def prob_11(x):
@@ -279,9 +264,6 @@ def prob_22(ar1, ar2, ar3, ar4):
     resultados.sort()
     resultados_2.sort()
 
-    print(resultados)
-    print(resultados_2)
-
     return resultados == resultados_2
 
 
@@ -313,10 +295,6 @@ def prob_23():
                 continue
             x = []
 
-            print(i)
-            print(pos)
-            print(mapa[i])
-
             if pos >= 0 and pos <= len(mapa[i]):
                 x.append(int(mapa[i][pos - 1]))
             else:
@@ -343,26 +321,17 @@ def prob_23():
                 if x.index(max(x)) == 0:
                     pos += 1
 
-        res = ""
         for i in valores:
             resultado += int(i)
-            res += str(i) + " \n"
 
-
-        f = open(str(z) + "-" + str(resultado) + ".txt", "w+")
-        f.write(res)
-        f.close
-        print(resultado)
         lista.append(resultado)
         resultado = 0
         valores = []
         res = ""
     
-    lista.sort()
-    print(lista)
-    print(len(lista))
+    lista.sort(reverse = True)
     
-    return resultado
+    return lista[0]
 
 
 def prob_24(lista):
@@ -394,27 +363,27 @@ def prob_24(lista):
 
 
 if __name__ == '__main__':
-    #print(prob_1(100))
-    #print(prob_2(-12))
-    #print(prob_3(2,0))
-    #prob_4("holaa",11)
-    #print(prob_5([-3, -2, 5], [6, -10, -1]))
-    #print(prob_6([4,7,1,82,34,12,23,8,0]))
-    #print(prob_7())
-    #print(prob_8(5))
-    #print(prob_9(4, 5, 3))
-    #print(prob_10([-2,-1], [2,2], [5,-2]))
-    #print(prob_11("Amad a la dama"))
-    #print(prob_12(1025))
-    #print(prob_13(27))
-    #print(prob_14(19)) # 23452789
-    #print(prob_15(14))
-    #print(prob_16(220, 284))
-    #print(prob_17(9, 14))
-    #print(prob_18(6765))
-    #print(prob_19(12))
-    #print(prob_20())
-    #print(prob_21(109))
-    #print(prob_22((0,0), (0,0), (0,0), (0,0)))
+    print(prob_1(100))
+    print(prob_2(-12))
+    print(prob_3(2,0))
+    print(prob_4("holaa",8))
+    print(prob_5([-3, -2, 5], [6, -10, -1]))
+    print(prob_6([4,7,1,82,34,12,23,8,0]))
+    print(prob_7())
+    print(prob_8(5))
+    print(prob_9(4, 5, 3))
+    print(prob_10([-2,-1], [2,2], [5,-2]))
+    print(prob_11("Amad a la dama"))
+    print(prob_12(1025))
+    print(prob_13(27))
+    print(prob_14(19)) # 23452789
+    print(prob_15(14))
+    print(prob_16(220, 284))
+    print(prob_17(9, 14))
+    print(prob_18(6765))
+    print(prob_19(12))
+    print(prob_20())
+    print(prob_21(109))
+    print(prob_22((0,0), (0,0), (0,0), (0,0)))
     print(str(prob_23()))
-    #print(prob_24([1,2,3]))
+    print(prob_24([1,2,3]))
